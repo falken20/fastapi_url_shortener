@@ -1,4 +1,5 @@
 # by Richi Rod AKA @richionline / falken20
+# url_shortener/config.py
 
 # Library that uses type annotation to validate data and manage settings.
 from pydantic import BaseSettings
@@ -12,6 +13,11 @@ class Settings(BaseSettings):
     env_name: str = "Local"
     base_url: str = "http://localhost:8080"
     db_url: str = "sqlite:///./shortener.db"
+
+    class Config:
+        # When you add the Config class with the path to your env_file to your 
+        # settings, pydantic loads your environment variables from the .env file.
+        env_file = ".env"
 
 
 @lru_cache
