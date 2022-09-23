@@ -13,6 +13,15 @@
 # url_shortener
 API service in FastAPI to get shortener urls
 
+##### Endpoints
+Endpoint | HTTP Verb | Request Body | Action
+--- | --- | --- | ---
+`/` | **GET** | ** | Returns welcome message and endpoints
+`/url` | **POST** | *Your target URL* | Shows the created url_key with additional info, including a secret_key
+`/{url_key}` | **GET** | ** | Forwards to your target URL
+`/admin/{secret_key}` | **GET** | ** | Shows administrative info about your shortened URL
+`/admin/{secret_key}` | **DELETE** | *Your secret key* | Deletes your shortened URL
+
 ##### Deploy
 ```bash
 Explain Heroku, GCP, etc. deploy method
